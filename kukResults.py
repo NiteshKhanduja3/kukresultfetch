@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import json
 from operator import itemgetter 
   
 
@@ -29,6 +29,13 @@ for list1 in range(1,31,2): #top 20 results from the website
     #    res1 = [ sub['subject'] for sub in subjects]  # to get items from the list of dictioneries
 
 
+# Getting the results un new file
+f=open ("results.txt","w+")
+f1= open("resultsLinks","w+")
+for sub in subjects :
+ f.write(json.dumps(sub, indent=4))
+for links in subjects_links:
+       f1.write(json.dumps(links,indent=4))
 print(subjects +subjects_links)
 
 
@@ -37,5 +44,3 @@ print(subjects +subjects_links)
 #     print(res1)
 # else:
 #     print("subject not there")
-
-
