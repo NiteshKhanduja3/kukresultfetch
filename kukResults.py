@@ -11,7 +11,7 @@ soup = BeautifulSoup(res.text,'html.parser') #html parser
 
 
 subjects_links =[]
-for link_gen in range(60,81): # 60 to 81 range for website specific
+for link_gen in range(60,101): # 60 to 101 range for website specific
        links = soup.select('a')[link_gen]
        links_generated = links.get('href',None)
        subjects_links.append({'Links':"https://www.kuk.ac.in"+links_generated})
@@ -19,7 +19,7 @@ for link_gen in range(60,81): # 60 to 81 range for website specific
 
 subjects = []
 
-for list1 in range(1,31,2): #top 20 results from the website
+for list1 in range(1,51,2): #top 25 results from the website
     
        sub_name =soup.select('table')[4]('td')[list1]
        subject_list = sub_name.getText().replace('\n',"")
@@ -44,3 +44,5 @@ print(subjects +subjects_links)
 #     print(res1)
 # else:
 #     print("subject not there")
+
+
